@@ -1,0 +1,45 @@
+version: 1.0.0
+metadata:
+  name: speech-generator
+  description: 'It generates speech about topic of given length of words. You may
+    choose speech to be informal or formal '
+  author: blackfoot
+  private: false
+  tags:
+  - Speech
+  - Powerful-speaker
+inputs:
+  topic:
+    type: string
+    description: Tell topic for the speech
+    required: true
+    example: Save trees
+  length:
+    type: string
+    description: Tell the length of the required speech
+    required: true
+    example: '200'
+  formal/informal:
+    type: string
+    description: Tell wether you want to generate formal or informal speech
+    required: true
+    example: Formal
+output:
+  name: story
+  type: string
+model:
+  provider: openai
+  name: gpt-4o
+prompt: Generate {formal/informal} speech about {topic} of length {length} words.
+readme: 'This tool generates speeches based on a given topic, length, and tone (formal
+  or informal). You can specify the subject of the speech, how long you want it to
+  be, and whether you''d like it to sound professional or casual.
+
+
+  Features:
+
+  Topic: Provide the subject of the speech.
+
+  Length: Choose the desired duration or word count.
+
+  Tone: Select between formal or informal speech.'
